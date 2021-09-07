@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route, Link } from "react-router-dom";
 import MyHeader from "./components/Header/Header";
 import ShowTotalCountByName from "./components/Show_total_count_by_name";
 import "./App.css";
@@ -7,7 +7,7 @@ import Navigator from "./components/Navigator";
 
 const App = () => {
   return (
-    <Router>
+    <HashRouter basename="/">
       <MyHeader />
       <Navigator />
       <Switch>
@@ -31,7 +31,7 @@ const App = () => {
           <div>home</div>
         </Route>
       </Switch>
-    </Router>
+    </HashRouter>
   )
 }
 
