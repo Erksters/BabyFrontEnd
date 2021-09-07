@@ -1,18 +1,18 @@
-
-import { Button } from "react-bootstrap";
 import React, { useState } from "react";
-import { get_total_count_by_name } from "../api/api"
+import { Button } from "react-bootstrap";
+import { get_total_count_by_name_and_year } from "../api/api"
 import Log from "./Log/log";
 import Loading from "./Loading/loading";
 
-const ShowTotalCountByName = () => {
-    const myurl = get_total_count_by_name;
+const ShowTotalCountByNameAndYear = () => {
+    const myurl = get_total_count_by_name_and_year;
 
     const [data, setData] = useState([]);
     const [SubmittedData, setSubmittedData] = useState(false);
     const [username, setUsername] = useState('')
-    const dialogue1 = `Type in a name to search for.`
-    const dialogue2 = `The result returned will be the number of children born from 1880 to 2018 with that name`
+    const [year, setYear] = useState(1880)
+    const dialogue1 = `Type in a name and year to search for.`
+    const dialogue2 = `The result returned will be the number of children born within a specific year with that name`
 
     const [searches, setSearches] = useState([]);
     const [doneLoading, setDoneLoading] = useState(false);
@@ -21,6 +21,7 @@ const ShowTotalCountByName = () => {
 
         var bodyFormData = new FormData();
         bodyFormData.append('username', username);
+        bodyFormData.append('useryear', year);
 
         await fetch(myurl, {
             method: "POST",
@@ -46,12 +47,33 @@ const ShowTotalCountByName = () => {
                 </div>
 
                 <div style={{ justifyContent: 'center', display: 'flex' }}>
-                    <input
-                        className="m-2"
-                        type="text"
-                        value={username}
-                        onChange={e => setUsername(e.target.value)}
-                    />
+
+                    <div>
+                        <label> Name:</label>
+                        <input
+                            className="m-2"
+                            type="text"
+                            value={username}
+                            onChange={e => setUsername(e.target.value)}
+                        />
+                    </div>
+
+                </div >
+
+                <div style={{ justifyContent: 'center', display: 'flex' }}>
+
+                    <div>
+                        <label>Year:</label>
+                        <input
+
+                            className="m-2"
+                            type="int"
+                            max={2018}
+                            min={1880}
+                            value={year}
+                            onChange={e => setYear(e.target.value)}
+                        />
+                    </div>
                 </div >
 
                 <div style={{ justifyContent: 'center', display: 'flex' }}>
@@ -72,6 +94,8 @@ const ShowTotalCountByName = () => {
         setSubmittedData(!SubmittedData);
         setDoneLoading(false);
     }
+
+
 
     if (!data.length || !doneLoading) {
         return (
@@ -104,4 +128,4 @@ const ShowTotalCountByName = () => {
     )
 }
 
-export default ShowTotalCountByName
+export default ShowTotalCountByNameAndYear

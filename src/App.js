@@ -4,33 +4,33 @@ import MyHeader from "./components/Header/Header";
 import ShowTotalCountByName from "./components/Show_total_count_by_name";
 import "./App.css";
 import Navigator from "./components/Navigator";
+import ShowTotalCountByNameAndYear from "./components/Show_total_count_by_name_and_year";
 
 const App = () => {
   return (
     <HashRouter basename="/">
       <MyHeader />
       <Navigator />
-      <Switch>
-        <Route path="/show_total_count_by_name">
-          <ShowTotalCountByName />
-        </Route>
 
-        <Route path="/search_by_name_and_state">
+      <Route path="/show_total_count_by_name">
+        <ShowTotalCountByName />
+      </Route>
 
-        </Route>
+      <Route path="/search_by_name_and_state">
+        search by name and state
+      </Route>
 
-        <Route path="/search_by_name_and_year">
+      <Route path="/search_by_name_and_year">
+        <ShowTotalCountByNameAndYear />
+      </Route>
 
-        </Route>
+      <Route path="/trends">
+        trends
+      </Route>
 
-        <Route path="/trends">
-
-        </Route>
-
-        <Route exact path="/">
-          <div>home</div>
-        </Route>
-      </Switch>
+      <Route exact path="/">
+        <div>home</div>
+      </Route>
     </HashRouter>
   )
 }
