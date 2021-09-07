@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+}
+
+
+.header {
+  padding: 15px;
+  text-align: center;
+  background: #147ffa;
+  color: white;
+}
+
+.header h1 {
+  font-size: 65px;
+}
+
+.header p {
+  font-size: 30px;
+}
+
+.headerMobile {
+  padding: 15px;
+  text-align: center;
+  background: #147ffa;
+  color: white;
+}
+
+.headerMobile h1 {
+  font-size: 32px;
+}
+
+.headerMobile p {
+  font-size: 20px;
+}
