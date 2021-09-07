@@ -1,12 +1,12 @@
 
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
-import get_total_count_by_name from "../api/api"
+import { base_url, get_total_count_by_name } from "../api/api"
 import Log from "./Log/log";
 import Loading from "./Loading/loading";
 
 const ShowTotalCountByName = () => {
-    const myurl = get_total_count_by_name;
+
     const [data, setData] = useState([]);
     const [SubmittedData, setSubmittedData] = useState(false);
     const [username, setUsername] = useState('')
@@ -15,17 +15,15 @@ const ShowTotalCountByName = () => {
 
     const [searches, setSearches] = useState([]);
     const [doneLoading, setDoneLoading] = useState(false);
+
     const loadData = async () => {
-
-        var bodyFormData = new FormData();
-        bodyFormData.append('username', username);
-
-        await fetch(myurl, {
-            method: "POST",
-            body: bodyFormData
+        console.log("pinging:", base_url + get_total_count_by_name(username))
+        await fetch(base_url + get_total_count_by_name(username), {
+            method: "GET"
         })
             .then(res => res.json())
             .then(data => {
+                console.log("data", data)
                 setData(data);
                 setSearches([...searches, [username, data[0]["total"]]])
                 setDoneLoading(true)
