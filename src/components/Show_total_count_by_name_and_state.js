@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { get_total_count_by_name_and_year } from "../api/api"
-import LogNameTotal from "./Log/LogNameTotal";
-import Loading from "./Loading/loading";
+import { get_total_count_by_name_and_state } from "../api/api"
 
-const ShowTotalCountByNameAndYear = () => {
-    const myurl = get_total_count_by_name_and_year;
+import Loading from "./Loading/loading";
+import LogNameStateTotal from "./Log/LogNameStateTotal";
+
+const ShowTotalCountByNameAndState = () => {
+    const myurl = get_total_count_by_name_and_state;
 
     const [data, setData] = useState([]);
     const [SubmittedData, setSubmittedData] = useState(false);
     const [username, setUsername] = useState('')
-    const [year, setYear] = useState(1880)
-    const dialogue1 = `Type in a name and year to search for.`
-    const dialogue2 = `The result returned will be the number of children born within a specific year with that name`
+    const [state, setState] = useState("AL")
+    const dialogue1 = `Type in a name and state to search for.`
+    const dialogue2 = `The result returned will be the number of children born within that state with that name from 1880 to 2018`
 
     const [searches, setSearches] = useState([]);
     const [doneLoading, setDoneLoading] = useState(false);
@@ -22,7 +23,7 @@ const ShowTotalCountByNameAndYear = () => {
 
         var bodyFormData = new FormData();
         bodyFormData.append('username', username);
-        bodyFormData.append('useryear', year);
+        bodyFormData.append('userstate', state);
         await fetch(myurl, {
             method: "POST",
             body: bodyFormData
@@ -34,7 +35,7 @@ const ShowTotalCountByNameAndYear = () => {
                     setSearches([...searches, [username, 0]]);
                 }
                 else {
-                    setSearches([...searches, [username, data[0]["total"]]]);
+                    setSearches([...searches, [username, state, data[0]["total"]]]);
                     setData(data);
                 }
                 setDoneLoading(true)
@@ -46,9 +47,11 @@ const ShowTotalCountByNameAndYear = () => {
     const Reset = () => {
         setSubmittedData(!SubmittedData);
         setDoneLoading(false);
-        setFoundZero(false)
+        setFoundZero(false);
+        setState("")
     }
 
+    console.log(state)
 
     if (!SubmittedData) {
         return (
@@ -77,16 +80,60 @@ const ShowTotalCountByNameAndYear = () => {
                 <div style={{ justifyContent: 'center', display: 'flex' }}>
 
                     <div>
-                        <label>Year:</label>
-                        <input
-
-                            className="m-2"
-                            type="int"
-                            max={2018}
-                            min={1880}
-                            value={year}
-                            onChange={e => setYear(e.target.value)}
-                        />
+                        <label>State:</label>
+                        <select onChange={e => setState(e.target.value)}>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
                     </div>
                 </div >
 
@@ -111,7 +158,6 @@ const ShowTotalCountByNameAndYear = () => {
                 <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
                     <Button onClick={Reset}>Search A New Name</Button>
                 </div>
-
             </div>
         )
     }
@@ -155,9 +201,9 @@ const ShowTotalCountByNameAndYear = () => {
                 <Button onClick={Reset}>Search A New Name</Button>
             </div>
 
-            <LogNameTotal arrayOfSearches={searches} />
+            <LogNameStateTotal addState arrayOfSearches={searches} />
         </>
     )
 }
 
-export default ShowTotalCountByNameAndYear
+export default ShowTotalCountByNameAndState

@@ -1,10 +1,11 @@
 import React from "react";
-import { HashRouter, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import MyHeader from "./components/Header/Header";
 import ShowTotalCountByName from "./components/Show_total_count_by_name";
 import "./App.css";
 import Navigator from "./components/Navigator";
 import ShowTotalCountByNameAndYear from "./components/Show_total_count_by_name_and_year";
+import ShowTotalCountByNameAndState from "./components/Show_total_count_by_name_and_state";
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
       </Route>
 
       <Route path="/search_by_name_and_state">
-        search by name and state
+        <ShowTotalCountByNameAndState />
       </Route>
 
       <Route path="/search_by_name_and_year">

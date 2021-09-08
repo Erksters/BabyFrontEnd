@@ -2,7 +2,7 @@
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { get_total_count_by_name } from "../api/api"
-import Log from "./Log/log";
+import LogNameTotal from "./Log/LogNameTotal";
 import Loading from "./Loading/loading";
 
 const ShowTotalCountByName = () => {
@@ -131,7 +131,7 @@ const ShowTotalCountByName = () => {
                 <Button onClick={Reset}>Search A New Name</Button>
             </div>
 
-            <Log arrayOfSearches={searches} />
+            <LogNameTotal arrayOfSearches={searches} />
         </>
     )
 }

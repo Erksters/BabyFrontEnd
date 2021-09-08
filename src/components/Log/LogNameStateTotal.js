@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-const Log = props => {
+const LogNameStateTotal = props => {
     const { arrayOfSearches } = props;
 
     const useStyles = makeStyles({
@@ -17,13 +17,10 @@ const Log = props => {
             maxWidth: 650,
         },
     });
-
     const classes = useStyles();
-
-    console.log(typeof (arrayOfSearches[0][1]))
     return (
         <>
-            <div className="d-none d-lg-block">
+            <div >
 
 
                 <TableContainer component={Paper} style={{ justifyContent: 'center', display: 'flex' }}>
@@ -31,7 +28,7 @@ const Log = props => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Name</TableCell>
-
+                                <TableCell align="right">State</TableCell>
                                 <TableCell align="right">Total</TableCell>
                             </TableRow>
                         </TableHead>
@@ -41,7 +38,8 @@ const Log = props => {
                                     <TableCell component="th" scope="row">
                                         {row[0]}
                                     </TableCell>
-                                    <TableCell align="right">{row[1].toLocaleString("en-US")}</TableCell>
+                                    <TableCell align="right">{row[1]}</TableCell>
+                                    <TableCell align="right">{row[2].toLocaleString("en-US")}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -58,4 +56,4 @@ const Log = props => {
     );
 };
 
-export default Log;
+export default LogNameStateTotal;
