@@ -1,5 +1,5 @@
 // export const base_url = "http://localhost:5000/"
-export const base_url = "https://git.heroku.com/baby-name-mysql.git"
+export const base_url = "https://git.heroku.com/baby-name-mysql.git/"
 
 export const get_total_count_by_name = base_url + 'get_total_count_by_name'
 
