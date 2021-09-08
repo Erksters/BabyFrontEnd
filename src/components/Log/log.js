@@ -36,8 +36,8 @@ const Log = props => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {arrayOfSearches.map(row => (
-                                <TableRow key={row.name}>
+                            {arrayOfSearches.map((row, index) => (
+                                <TableRow key={index}>
                                     <TableCell component="th" scope="row">
                                         {row[0]}
                                     </TableCell>

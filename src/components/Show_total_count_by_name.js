@@ -16,9 +16,9 @@ const ShowTotalCountByName = () => {
 
     const [searches, setSearches] = useState([]);
     const [doneLoading, setDoneLoading] = useState(false);
+    const [foundZero, setFoundZero] = useState(false);
 
     const loadData = async () => {
-
         var bodyFormData = new FormData();
         bodyFormData.append('username', username);
 
@@ -28,8 +28,14 @@ const ShowTotalCountByName = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setData(data);
-                setSearches([...searches, [username, data[0]["total"]]])
+                if (data.length === 0) {
+                    setFoundZero(true);
+                    setSearches([...searches, [username, 0]]);
+                }
+                else {
+                    setSearches([...searches, [username, data[0]["total"]]]);
+                    setData(data);
+                }
                 setDoneLoading(true)
             }
             );
@@ -71,14 +77,40 @@ const ShowTotalCountByName = () => {
     const Reset = () => {
         setSubmittedData(!SubmittedData);
         setDoneLoading(false);
+        setFoundZero(false)
     }
 
-    if (!data.length || !doneLoading) {
+    if (!doneLoading) {
         return (
             <div>
                 <Loading username={username} />
+                <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
+                    <Button onClick={Reset}>Search A New Name</Button>
+                </div>
+
             </div>
         )
+    }
+    if (foundZero) {
+        return (
+            <>
+                <div className="m-3 " style={{ justifyContent: 'center', display: 'flex' }}>
+                    Uh Oh...
+                </div>
+
+                <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
+                    We didn't find any &nbsp; <strong>{username}'s</strong>
+                </div>
+
+                <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
+                    in our database
+                </div>
+
+                <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
+                    <Button onClick={Reset}>Search A New Name</Button>
+                </div>
+            </>
+        );
     }
 
     return (
