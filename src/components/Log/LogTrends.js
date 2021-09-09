@@ -2,12 +2,10 @@ import React from "react";
 import Chart from "r-chart";
 const LogTrends = props => {
     const { trendData } = props;
-    console.log(trendData)
     let k = 1880;
     let trendLength = trendData[trendData.length - 1]["key"] - 1880;
     const formatData = () => {
 
-        console.log("trendlength", trendLength)
         for (let j = 0; j < trendLength; j++) {
             // console.log(trendData[j]["key"], "//", k, j)
             if (trendData[j]["key"] !== k) {

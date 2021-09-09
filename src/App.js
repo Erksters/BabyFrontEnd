@@ -11,6 +11,7 @@ import Sources from "./components/Log/Sources";
 import Home from "./components/Home";
 
 const App = () => {
+  window.document.title = "Baby Name Stats"
   return (
     <HashRouter basename="/">
       <MyHeader />
