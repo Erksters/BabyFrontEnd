@@ -45,11 +45,7 @@ const LogNameStateTotal = props => {
                         </TableBody>
                     </Table>
                 </TableContainer>
-
-
             </div>
-
-
         </>
     );
 };

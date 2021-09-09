@@ -43,12 +43,6 @@ const LogNameTotal = props => {
                         </TableBody>
                     </Table>
                 </TableContainer>
-
-
-            </div>
-
-            <div className="d-lg-none">
-                adsf
             </div>
         </>
     );
