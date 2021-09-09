@@ -49,9 +49,7 @@ const LogNameStateTotal = props => {
 
             </div>
 
-            <div className="d-lg-none">
-                adsf
-            </div>
+
         </>
     );
 };

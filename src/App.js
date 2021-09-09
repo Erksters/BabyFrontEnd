@@ -6,6 +6,7 @@ import "./App.css";
 import Navigator from "./components/Navigator";
 import ShowTotalCountByNameAndYear from "./components/Show_total_count_by_name_and_year";
 import ShowTotalCountByNameAndState from "./components/Show_total_count_by_name_and_state";
+import Trends from "./components/Trends";
 
 const App = () => {
   return (
@@ -26,7 +27,7 @@ const App = () => {
       </Route>
 
       <Route path="/trends">
-        trends
+        <Trends />
       </Route>
 
       <Route exact path="/">

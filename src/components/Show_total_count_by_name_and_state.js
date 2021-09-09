@@ -32,7 +32,7 @@ const ShowTotalCountByNameAndState = () => {
             .then(data => {
                 if (data.length === 0) {
                     setFoundZero(true);
-                    setSearches([...searches, [username, 0]]);
+                    setSearches([...searches, [username, state, 0]]);
                 }
                 else {
                     setSearches([...searches, [username, state, data[0]["total"]]]);
@@ -43,15 +43,12 @@ const ShowTotalCountByNameAndState = () => {
             );
     };
 
-
     const Reset = () => {
         setSubmittedData(!SubmittedData);
         setDoneLoading(false);
         setFoundZero(false);
         setState("")
     }
-
-    console.log(state)
 
     if (!SubmittedData) {
         return (
@@ -194,7 +191,7 @@ const ShowTotalCountByNameAndState = () => {
             </div>
 
             <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
-                children born with the name "{username}" in the USA in 1880.
+                children born with the name "{username}" in the state "{state}" since 1880.
             </div>
 
             <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
