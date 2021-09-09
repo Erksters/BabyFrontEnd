@@ -16,27 +16,17 @@ const LogTrends = props => {
             }
             k++;
         }
-
-
     }
 
     formatData();
     if (trendData.length < 139) {
 
         for (let j = trendLength; j < 139; j++) {
-            console.log(j)
             let tempDict = { "key": 1880 + j, "value": 0 }
-            console.log(tempDict)
-
             trendData.splice(j, 0, tempDict)
-
         }
-
         trendData.splice(trendData.length - 1, 1)
-        console.log("3", trendData)
     }
-
-
 
     const myKeys = () => {
         let tempArray = []
@@ -45,8 +35,6 @@ const LogTrends = props => {
         }
         return (tempArray)
     }
-    console.log("2", trendData)
-
 
     return (
         <>
