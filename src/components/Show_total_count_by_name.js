@@ -44,10 +44,10 @@ const ShowTotalCountByName = () => {
     if (!SubmittedData) {
         return (
             <>
-                <div style={{ justifyContent: 'center', display: 'flex' }}>
+                <div className='m-3' style={{ justifyContent: 'center', display: 'flex' }}>
                     <p>{dialogue1}</p>
                 </div>
-                <div style={{ justifyContent: 'center', display: 'flex' }}>
+                <div className='m-3' style={{ justifyContent: 'center', display: 'flex' }}>
                     <p>{dialogue2}</p>
                 </div>
 
