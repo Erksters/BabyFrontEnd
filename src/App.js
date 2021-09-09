@@ -7,6 +7,8 @@ import Navigator from "./components/Navigator";
 import ShowTotalCountByNameAndYear from "./components/Show_total_count_by_name_and_year";
 import ShowTotalCountByNameAndState from "./components/Show_total_count_by_name_and_state";
 import Trends from "./components/Trends";
+import Sources from "./components/Log/Sources";
+import Home from "./components/Home";
 
 const App = () => {
   return (
@@ -30,8 +32,12 @@ const App = () => {
         <Trends />
       </Route>
 
+      <Route path="/sources">
+        <Sources />
+      </Route>
+
       <Route exact path="/">
-        <div>home</div>
+        <Home />
       </Route>
     </HashRouter>
   )
