@@ -11,9 +11,5 @@ export const get_many_counts_by_year = base_url + 'get_many_counts_by_year'
 
 const get_karen_trend = base_url + 'get_karen_trend'
 
-
-
-
-
 export default get_total_count_by_name
 
