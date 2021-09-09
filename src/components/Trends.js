@@ -42,10 +42,10 @@ const Trends = () => {
     if (!SubmittedData) {
         return (
             <>
-                <div style={{ justifyContent: 'center', display: 'flex' }}>
+                <div className='m-3' style={{ textAlign: 'center', justifyContent: 'center', display: 'flex' }}>
                     <p>{dialogue1}</p>
                 </div>
-                <div style={{ justifyContent: 'center', display: 'flex' }}>
+                <div className='m-3' style={{ textAlign: 'center', justifyContent: 'center', display: 'flex' }}>
                     <p>{dialogue2}</p>
                 </div>
 
