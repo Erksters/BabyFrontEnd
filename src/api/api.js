@@ -1,5 +1,6 @@
 // export const base_url = "http://localhost:3000/"
-export const base_url = "https://baby-name-mysql.herokuapp.com/"
+// export const base_url = "https://baby-name-mysql.herokuapp.com/"
+export const base_url = "18.216.233.214:3000/"
 
 export const get_total_count_by_name = base_url + 'get_total_count_by_name'
 
