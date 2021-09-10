@@ -24,9 +24,10 @@ const ShowTotalCountByName = () => {
 
         await fetch(myurl, {
             method: "POST",
-            body: bodyFormData
+            body: bodyFormData,
         })
-            .then(res => res.json())
+
+            .then(response => response.json())
             .then(data => {
                 if (data.length === 0) {
                     setFoundZero(true);
@@ -37,8 +38,7 @@ const ShowTotalCountByName = () => {
                     setData(data);
                 }
                 setDoneLoading(true)
-            }
-            );
+            });
     };
 
     if (!SubmittedData) {
