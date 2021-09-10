@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BabyFrontEnd/static/css/main.e9cda15b.chunk.css",
-    "main.js": "/BabyFrontEnd/static/js/main.4196f077.chunk.js",
+    "main.js": "/BabyFrontEnd/static/js/main.c3d0a462.chunk.js",
     "runtime-main.js": "/BabyFrontEnd/static/js/runtime-main.5ec871de.js",
     "static/css/2.d76706fe.chunk.css": "/BabyFrontEnd/static/css/2.d76706fe.chunk.css",
     "static/js/2.462df1ed.chunk.js": "/BabyFrontEnd/static/js/2.462df1ed.chunk.js",
@@ -14,6 +14,6 @@
     "static/css/2.d76706fe.chunk.css",
     "static/js/2.462df1ed.chunk.js",
     "static/css/main.e9cda15b.chunk.css",
-    "static/js/main.4196f077.chunk.js"
+    "static/js/main.c3d0a462.chunk.js"
   ]
 }
