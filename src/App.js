@@ -11,6 +11,7 @@ import Sources from "./components/Log/Sources";
 import Home from "./components/Home";
 
 const App = () => {
+  window.location.href = "http://18.216.233.214:3002/BabyFrontEnd/#/"
   window.document.title = "Baby Name Stats"
   return (
     <HashRouter basename="/">
