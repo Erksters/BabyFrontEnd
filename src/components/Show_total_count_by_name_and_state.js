@@ -166,7 +166,7 @@ const ShowTotalCountByNameAndState = () => {
                 </div>
 
                 <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
-                    We didn't find any &nbsp; <strong>{username}'s</strong>
+                    We didn't find any &nbsp; <strong>{username}s</strong>
                 </div>
 
                 <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>

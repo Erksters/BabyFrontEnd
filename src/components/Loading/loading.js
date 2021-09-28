@@ -8,7 +8,7 @@ const Loading = (props) => {
     return (
         <>
             <div className="m-3" style={{ justifyContent: 'center', display: 'flex' }}>
-                Counting up all the {username}'s
+                Counting up all the {username}s
             </div>
             <div className="centerDiv">
                 <WaveLoading color="#147ffa" size="large" speed=".9" />

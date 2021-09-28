@@ -8,7 +8,7 @@ const Sources = () => {
             </div>
 
             <div className='m-3' style={{ textAlign: 'center', justifyContent: 'center', display: 'flex' }}>
-                All data belongs to, and can be found, on Dolthub's data repositories
+                All data belongs to, and can be found, on Dolthubs data repositories
             </div>
 
             <div className='m-3' style={{ textAlign: 'center', justifyContent: 'center', display: 'flex' }}>
@@ -28,7 +28,7 @@ const Sources = () => {
             </div>
 
             <div className='m-3' style={{ textAlign: 'center', justifyContent: 'center', display: 'flex' }}>
-                The data is as accurate as Dolthub and it's developers have provided. If you find any inaccuracies, then submit your concerns there.
+                The data is as accurate as Dolthub and its developers have provided. If you find any inaccuracies, then submit your concerns there.
             </div>
 
             <div className='m-3' style={{ justifyContent: 'center', display: 'flex' }}>
